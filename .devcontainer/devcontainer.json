@@ -1,0 +1,16 @@
+{
+  "name": "semana 5",
+  "dockerFile": "Dockerfile",
+  "extensions": [
+    "felixfbecker.php-pack",
+    "bmewburn.vscode-intelephense-client",
+    "ecmel.vscode-html-css",
+    "yzhang.markdown-all-in-one"
+  ],
+  "workspaceFolder": "/var/www",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/var/www,type=bind",
+  "forwardPorts": [
+    80,
+    443
+  ]
+}
