@@ -1,3 +1,10 @@
+<?php 
+use App\Usuario;
+if (isset($_SESSION['user_id'])) {
+    $user = Usuario::find($_SESSION['user_id']);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +15,16 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">Bienvenidos</div>
+        <div class="header">
+            <div>
+                <a href="/">Semana 5</a>
+            </div>
+            <div></div>
+            <?php if(isset($user)):?>
+                <p><?php echo $user->username?></p>
+                <div><a href="/logout" class="button">Salir</a></div>
+            <?php endif?>
+        </div>
         <div class="content">
             <?php include("$content"); ?>
         </div>

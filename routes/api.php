@@ -1,6 +1,12 @@
 <?php
 use App\Kernel\Router;
 Router::get('/', "HomeController@index");
+Router::get('/home', "HomeController@home");
+Router::get('/login', "AuthController@indexLogin");
+Router::get('/logout', "AuthController@logout");
+Router::post('/login', "AuthController@login");
+Router::get('/register', "AuthController@indexRegister");
+Router::post('/register', "AuthController@register");
 
 // PERSONAS //
 Router::get('/personas', "PersonaController@index");

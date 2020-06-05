@@ -67,4 +67,10 @@ class Usuario extends AbstractModel
     {
         return parent::findEntity('usuarios', $id, "App\Usuario");
     }
+
+    static function findByUsername($username)
+    {
+        $sql = "SELECT * FROM usuarios WHERE username='$username'";
+        return parent::customFind($sql, 'App\Usuario');
+    }
 }

@@ -2,11 +2,18 @@
 namespace App\Controllers;
 
 use App\Empleado;
+use App\Handlers\AuthenticateHandler;
 use App\Helpers;
 use App\Persona;
 
 class EmpleadoController
 {
+    function __construct($request)
+    {
+        $handler = new AuthenticateHandler();
+        $handler->handle($request);
+    }
+
     public function index()
     {
         return Helpers::view("empleados/index.php");

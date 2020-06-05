@@ -4,9 +4,14 @@ namespace App\Controllers;
 use App\Helpers;
 use App\Persona;
 use App\Correo;
-
+use App\Handlers\AuthenticateHandler;
 class CorreoController
 {
+    function __construct($request)
+    {
+        $handler = new AuthenticateHandler();
+        $handler->handle($request);
+    }
     public function index()
     {
         return Helpers::view("correos/index.php");

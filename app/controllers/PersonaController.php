@@ -3,9 +3,16 @@ namespace App\Controllers;
 use App\Persona;
 use App\Empresa;
 use App\Helpers;
+use App\Handlers\AuthenticateHandler;
 
 class PersonaController
 {
+    function __construct($request)
+    {
+        $handler = new AuthenticateHandler();
+        $handler->handle($request);
+    }
+
     public function index()
     {
         return Helpers::view("personas/index.php");

@@ -4,9 +4,16 @@ namespace App\Controllers;
 
 use App\Helpers;
 use App\Empresa;
+use App\Handlers\AuthenticateHandler;
 
 class EmpresaController
 {
+    function __construct($request)
+    {
+        $handler = new AuthenticateHandler();
+        $handler->handle($request);
+    }
+
     public function index()
     {
         return Helpers::view("empresas/index.php");

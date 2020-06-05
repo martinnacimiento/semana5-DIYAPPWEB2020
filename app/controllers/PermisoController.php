@@ -4,10 +4,17 @@ namespace App\Controllers;
 
 use App\Helpers;
 use App\Empresa;
+use App\Handlers\AuthenticateHandler;
 use App\Permiso;
 
 class PermisoController
 {
+    function __construct($request)
+    {
+        $handler = new AuthenticateHandler();
+        $handler->handle($request);
+    }
+
     public function index()
     {
         return Helpers::view("permisos/index.php");
